@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Causayín Ventas - Tu Tienda Online</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+    <header>
+        <h1>Causayín Ventas</h1>
+        <p>Tu mejor opción para compras online en Perú</p>
+    </header>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#ofertas">Ofertas</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <main class="container">
+        <section id="inicio">
+            <h2>Bienvenido a Causayín Ventas</h2>
+            <p>Explora nuestra amplia variedad de productos de alta calidad y encuentra lo que necesitas al mejor precio, ¡directo a tu hogar en Lima y todo el Perú!</p>
+            <div class="product-grid">
+                <article class="product-card">
+                    <img src="https://via.placeholder.com/250x150?text=Laptop+Gamer" alt="Laptop Gamer de Alta Gama">
+                    <h3>Laptop Gamer XYZ Pro</h3>
+                    <p class="price">S/ 4,599.00</p>
+                    <button class="add-to-cart">Añadir al Carrito</button>
+                </article>
+                <article class="product-card">
+                    <img src="https://via.placeholder.com/250x150?text=Smartphone+Ultimo" alt="Smartphone Última Generación">
+                    <h3>Smartphone Galaxy S25</h3>
+                    <p class="price">S/ 2,800.00</p>
+                    <button class="add-to-cart">Añadir al Carrito</button>
+                </article>
+                <article class="product-card">
+                    <img src="https://via.placeholder.com/250x150?text=Audifonos+Inalambricos" alt="Audífonos Inalámbricos">
+                    <h3>Audífonos Bluetooth Premium</h3>
+                    <p class="price">S/ 250.50</p>
+                    <button class="add-to-cart">Añadir al Carrito</button>
+                </article>
+                </div>
+        </section>
+
+        <section id="productos">
+            <h2>Nuestros Productos Destacados</h2>
+            <p>Desde electrónica de última generación hasta artículos para el hogar y moda, ¡lo tenemos todo para ti!</p>
+            </section>
+
+        <section id="ofertas">
+            <h2>Ofertas Especiales</h2>
+            <p>No te pierdas nuestras promociones por tiempo limitado y descuentos exclusivos.</p>
+            </section>
+
+        <section id="contacto">
+            <h2>Contáctanos</h2>
+            <p>¿Tienes alguna pregunta, sugerencia o necesitas ayuda? Estamos aquí para asistirte.</p>
+            <p>Email: <a href="mailto:info@causayin_ventas.com">info@causayin_ventas.com</a></p>
+            <p>Teléfono: <a href="tel:+51987654321">+51 987 654 321</a></p>
+            <p>Horario de atención: Lunes a Viernes, 9:00 AM - 6:00 PM (hora de Lima)</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Causayín Ventas. Todos los derechos reservados.</p>
+        <p>Hecho con <span style="color: red;">&hearts;</span> desde Lima, Perú.</p>
+    </footer>
+
+    <script>
+        // Pequeño script de ejemplo para mostrar un mensaje al añadir al carrito
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('¡Producto añadido al carrito!');
+            });
+        });
+    </script>
+</body>
+</html>
