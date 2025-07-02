@@ -61,7 +61,7 @@
         <p>&copy; 2025 Plataforma Digital SERPOST. Todos los derechos reservados.</p>
     </footer>
     <script>
-        // Datos falsos de paquetes con imágenes reales de Unsplash
+        // Datos falsos de paquetes con imagen y artículos
         const paquetesFalsos = {
             'ABC123': {
                 estado: 'En tránsito',
@@ -99,7 +99,7 @@
             const resultado = document.getElementById('resultadoPaquete');
             if (paquetesFalsos[codigo]) {
                 const p = paquetesFalsos[codigo];
-                let html = `<img src=\"${p.imagen}\" alt=\"Paquete\" style=\"display:block;margin-bottom:1rem;max-width:200px;\">`;
+                let html = `<img src="${p.imagen}" alt="Paquete" style="display:block;margin-bottom:1rem;max-width:200px;">`;
                 html += `<strong>Estado:</strong> ${p.estado}<br><strong>Ubicación:</strong> ${p.ubicacion}<br><strong>Última actualización:</strong> ${p.fecha}`;
                 html += `<h4 style='margin-top:1rem;'>Artículos en el paquete:</h4><div style='display:flex;gap:1rem;'>`;
                 p.articulos.forEach(a => {
@@ -108,7 +108,7 @@
                 html += `</div>`;
                 resultado.innerHTML = html;
             } else {
-                resultado.innerHTML = '<span style=\"color:#b80000;\">No se encontró ningún paquete con ese código.</span>';
+                resultado.innerHTML = '<span style="color:#b80000;">No se encontró ningún paquete con ese código.</span>';
             }
         }
     </script>
