@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Empleado - SERPOST Tarma</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { background: #eaf6ff; }
+        .serpost-header {
+            background: #d90429;
+            color: #fff;
+            padding: 1.5rem 0 1rem 0;
+            text-align: center;
+        }
+        .serpost-logo {
+            font-size: 2.2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+        .serpost-banner {
+            background: #eaf6ff;
+            padding: 2rem 1rem 1rem 1rem;
+            text-align: center;
+        }
+        .serpost-form {
+            max-width: 400px;
+            margin: 0 auto 2rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .serpost-form input {
+            padding: 0.8rem;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+        .serpost-form button {
+            background: #d90429;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 0.8rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .serpost-form button:hover {
+            background: #a8001c;
+        }
+        @media (max-width: 600px) {
+            .serpost-banner h2 { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="serpost-header">
+        <div class="serpost-logo">SERPOST TARMA</div>
+        <div style="font-size:1.1rem;">Panel de Empleado - Registrar Nuevo Envío</div>
+    </header>
+    <main>
+        <section class="serpost-banner">
+            <form class="serpost-form" id="registro-form" onsubmit="registrarEnvio(event)">
+                <input type="text" id="nuevoOrden" placeholder="N° de Orden" required>
+                <input type="text" id="nuevoCodigo" placeholder="Código de Orden" required>
+                <input type="text" id="nuevoDestino" placeholder="Destino" required>
+                <input type="text" id="nuevoEstado" placeholder="Estado (Ej: En tránsito)" required>
+                <input type="text" id="nuevoUbicacion" placeholder="Ubicación actual" required>
+                <input type="date" id="nuevoFecha" placeholder="Fecha de actualización" required>
+                <input type="text" id="nuevoDetalles" placeholder="Detalles del envío" required>
+                <button type="submit">Registrar Envío</button>
+            </form>
+            <div id="registroExito" style="color:green;font-weight:bold;"></div>
+            <a href="index.html" style="display:block;margin-top:2rem;color:#d90429;font-weight:bold;">&larr; Volver a Rastreo</a>
+        </section>
+    </main>
+    <footer>
+        <p style="text-align:center; color:#fff; background:#023e8a; padding:1rem 0; margin-top:2rem;">&copy; 2025 SERPOST TARMA. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        function registrarEnvio(event) {
+            event.preventDefault();
+            const orden = document.getElementById('nuevoOrden').value.trim();
+            const codigo = document.getElementById('nuevoCodigo').value.trim().toUpperCase();
+            const destino = document.getElementById('nuevoDestino').value.trim();
+            const estado = document.getElementById('nuevoEstado').value.trim();
+            const ubicacion = document.getElementById('nuevoUbicacion').value.trim();
+            const fecha = document.getElementById('nuevoFecha').value;
+            const detalles = document.getElementById('nuevoDetalles').value.trim();
+            const key = `${orden}-${codigo}`;
+            let envios = {};
+            if(localStorage.getItem('enviosTarma')) {
+                envios = JSON.parse(localStorage.getItem('enviosTarma'));
+            }
+            envios[key] = { estado, ubicacion, fecha, destino, detalles };
+            localStorage.setItem('enviosTarma', JSON.stringify(envios));
+            document.getElementById('registroExito').textContent = '¡Envío registrado exitosamente!';
+            document.getElementById('registro-form').reset();
+            setTimeout(()=>{ document.getElementById('registroExito').textContent = ''; }, 3000);
+        }
+    </script>
+</body>
+</html>
