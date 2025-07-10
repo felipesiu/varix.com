@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - SERPOST Tarma</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { background: #eaf6ff; }
+        .inicio-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .inicio-logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #d90429;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+        }
+        .inicio-btn {
+            background: #d90429;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 1rem 2.5rem;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .inicio-btn:hover {
+            background: #a8001c;
+        }
+    </style>
+</head>
+<body>
+    <div class="inicio-container">
+        <div class="inicio-logo">SERPOST TARMA</div>
+        <p style="font-size:1.2rem; color:#023e8a; margin-bottom:2rem;">Bienvenido al sistema de rastreo de paquetes</p>
+        <button class="inicio-btn" onclick="window.location.href='index.html'">Ir al Rastreo de Envíos</button>
+    </div>
+</body>
+</html>
