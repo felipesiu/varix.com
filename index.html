@@ -118,6 +118,19 @@
                 <button type="submit">Buscar &rarr;</button>
             </form>
             <div id="resultadoEnvio" style="margin-top:1.5rem;"></div>
+            <hr style="margin:2rem 0;">
+            <h3 style="color:#d90429;">Panel de Empleado - Registrar Nuevo Envío</h3>
+            <form class="serpost-form" id="registro-form" onsubmit="registrarEnvio(event)">
+                <input type="text" id="nuevoOrden" placeholder="Nuevo N° de Orden" required>
+                <input type="text" id="nuevoCodigo" placeholder="Nuevo Código de Orden" required>
+                <input type="text" id="nuevoDestino" placeholder="Destino" required>
+                <input type="text" id="nuevoEstado" placeholder="Estado (Ej: En tránsito)" required>
+                <input type="text" id="nuevoUbicacion" placeholder="Ubicación actual" required>
+                <input type="text" id="nuevoFecha" placeholder="Fecha de actualización (YYYY-MM-DD)" required>
+                <input type="text" id="nuevoDetalles" placeholder="Detalles del envío" required>
+                <button type="submit">Registrar Envío</button>
+            </form>
+            <div id="registroExito" style="color:green;font-weight:bold;"></div>
         </section>
     </main>
     <footer>
@@ -152,6 +165,22 @@
             } else {
                 resultado.innerHTML = `<div style='color:#d90429;font-weight:bold;'>No se encontró ningún envío con esos datos.</div>`;
             }
+        }
+        // Panel de empleado: registrar nuevo envío
+        function registrarEnvio(event) {
+            event.preventDefault();
+            const orden = document.getElementById('nuevoOrden').value.trim();
+            const codigo = document.getElementById('nuevoCodigo').value.trim().toUpperCase();
+            const destino = document.getElementById('nuevoDestino').value.trim();
+            const estado = document.getElementById('nuevoEstado').value.trim();
+            const ubicacion = document.getElementById('nuevoUbicacion').value.trim();
+            const fecha = document.getElementById('nuevoFecha').value.trim();
+            const detalles = document.getElementById('nuevoDetalles').value.trim();
+            const key = `${orden}-${codigo}`;
+            enviosFalsos[key] = { estado, ubicacion, fecha, destino, detalles };
+            document.getElementById('registroExito').textContent = '¡Envío registrado exitosamente!';
+            document.getElementById('registro-form').reset();
+            setTimeout(()=>{ document.getElementById('registroExito').textContent = ''; }, 3000);
         }
     </script>
 </body>
