@@ -3,112 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plataforma Digital SERPOST</title>
+    <title>Rastrea tu envío - SERPOST</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body { background: #eaf6ff; }
+        .serpost-header {
+            background: #d90429;
+            color: #fff;
+            padding: 1.5rem 0 1rem 0;
+            text-align: center;
+        }
+        .serpost-logo {
+            font-size: 2.2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+        .serpost-banner {
+            background: #eaf6ff;
+            padding: 2rem 1rem 1rem 1rem;
+            text-align: center;
+        }
+        .serpost-banner h2 {
+            color: #023e8a;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .serpost-ticket {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: inline-block;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+            min-width: 320px;
+        }
+        .serpost-ticket .datos {
+            margin-top: 1rem;
+        }
+        .serpost-ticket .badge {
+            background: #d90429;
+            color: #fff;
+            border-radius: 6px;
+            padding: 0.2rem 0.7rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            display: inline-block;
+        }
+        .serpost-ticket img {
+            display: block;
+            margin: 0 auto 1rem auto;
+            max-width: 220px;
+            border-radius: 10px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+        }
+        .serpost-form {
+            max-width: 400px;
+            margin: 0 auto 2rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .serpost-form input {
+            padding: 0.8rem;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+        .serpost-form button {
+            background: #d90429;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 0.8rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .serpost-form button:hover {
+            background: #a8001c;
+        }
+        @media (max-width: 600px) {
+            .serpost-ticket { min-width: 0; padding: 1rem; }
+            .serpost-banner h2 { font-size: 1.2rem; }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Plataforma Digital Integrada SERPOST</h1>
-        <p>Rastrea, registra y gestiona tus paquetes de manera eficiente y segura</p>
+    <header class="serpost-header">
+        <div class="serpost-logo">SERPOST</div>
+        <div style="font-size:1.1rem;">Conoce dónde se encuentra tu envío</div>
     </header>
-    <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#funcionalidades">Funcionalidades</a>
-        <a href="#beneficios">Beneficios</a>
-        <a href="#contacto">Contacto</a>
-    </nav>
-    <main class="container">
-        <section id="inicio">
-            <h2>Bienvenido a la Plataforma Digital SERPOST</h2>
-            <p>Esta plataforma está diseñada para optimizar el registro, rastreo y entrega de paquetes en SERPOST, permitiendo una gestión moderna, rápida y transparente tanto para usuarios como para el personal de la empresa.</p>
-        </section>
-        <section id="funcionalidades">
-            <h2>Funcionalidades Principales</h2>
-            <ul>
-                <li><strong>Registro Digital de Paquetes:</strong> Ingresa los datos de tus envíos de forma sencilla y segura, eliminando el uso de papel.</li>
-                <li><strong>Rastreo en Tiempo Real:</strong> Consulta el estado y ubicación de tus paquetes en cualquier momento desde cualquier dispositivo.</li>
-                <li><strong>Gestión de Entregas:</strong> El personal de SERPOST puede actualizar el estado de cada paquete, registrar entregas y notificar a los usuarios automáticamente.</li>
-                <li><strong>Historial de Envíos:</strong> Accede a un historial completo de todos tus envíos y entregas anteriores.</li>
-                <li><strong>Notificaciones Inteligentes:</strong> Recibe alertas sobre el estado de tus paquetes y recordatorios de entrega.</li>
-            </ul>
-            <div style="margin-top:2rem;">
-                <h3>Buscador de Paquetes</h3>
-                <form id="buscador-paquete" onsubmit="buscarPaquete(event)">
-                    <input type="text" id="codigoPaquete" placeholder="Ingresa el código de tu paquete" required style="padding:0.5rem; width:250px;">
-                    <button type="submit" style="padding:0.5rem 1rem;">Rastrear</button>
-                </form>
-                <div id="resultadoPaquete" style="margin-top:1rem;"></div>
+    <main>
+        <section class="serpost-banner">
+            <h2>Rastrea tu paquete fácilmente</h2>
+            <div class="serpost-ticket">
+                <img src="https://api.bridgemarkets.com/v1/image.php?size=1200&url=https://d1u9bbhcasux7c.cloudfront.net/uploads/2023/09/c14380bd-c96a-4d80-b955-81c9e2208b72.jpg" alt="Paquete SERPOST">
+                <div><strong>SERPOST S.A.</strong></div>
+                <div>Av. Tomás Valle 3351, Lima, Perú</div>
+                <div>Central: 01-511-5111</div>
+                <div>https://www.serpost.com.pe/</div>
+                <div class="datos">
+                    <div><span class="badge">NRO. ORDEN: 9560819</span> <span class="badge">CÓDIGO: C7P9</span></div>
+                    <div>Fecha de emisión: 2023/07/07 &nbsp; 09:57:57</div>
+                    <div>Fecha de traslado: 2023/07/07</div>
+                    <div>Destino: PIURA PRINCIPAL</div>
+                </div>
             </div>
-        </section>
-        <section id="beneficios">
-            <h2>Beneficios de la Digitalización</h2>
-            <ul>
-                <li>Reducción de errores y tiempos de espera.</li>
-                <li>Mayor transparencia y satisfacción del cliente.</li>
-                <li>Seguimiento eficiente y seguro de los paquetes.</li>
-                <li>Optimización de recursos y procesos internos.</li>
-                <li>Acceso fácil y rápido a la información desde cualquier lugar.</li>
-            </ul>
-        </section>
-        <section id="contacto">
-            <h2>Contacto y Soporte</h2>
-            <p>¿Tienes dudas o necesitas ayuda? Nuestro equipo está listo para asistirte.</p>
-            <p>Email: <a href="mailto:soporte@serpostdigital.com">soporte@serpostdigital.com</a></p>
-            <p>Teléfono: <a href="tel:+51987654321">+51 987 654 321</a></p>
+            <form class="serpost-form" id="rastreo-form" onsubmit="buscarEnvio(event)">
+                <input type="text" id="ordenInput" placeholder="N° de Orden" required>
+                <input type="text" id="codigoInput" placeholder="Código de Orden" required>
+                <button type="submit">Buscar &rarr;</button>
+            </form>
+            <div id="resultadoEnvio" style="margin-top:1.5rem;"></div>
         </section>
     </main>
     <footer>
-        <p>&copy; 2025 Plataforma Digital SERPOST. Todos los derechos reservados.</p>
+        <p style="text-align:center; color:#fff; background:#023e8a; padding:1rem 0; margin-top:2rem;">&copy; 2025 SERPOST. Todos los derechos reservados.</p>
     </footer>
     <script>
-        // Datos falsos de paquetes con imagen y artículos
-        const paquetesFalsos = {
-            'ABC123': {
+        // Datos de ejemplo para rastreo
+        const enviosFalsos = {
+            '9560819-C7P9': {
                 estado: 'En tránsito',
                 ubicacion: 'Centro de distribución Lima',
                 fecha: '2025-07-01',
-                imagen: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-                articulos: [
-                    { nombre: 'Audifonos Bluetooth', imagen: 'https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=crop&w=80&q=80' },
-                    { nombre: 'Cargador USB', imagen: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=80&q=80' }
-                ]
-            },
-            'XYZ789': {
-                estado: 'Entregado',
-                ubicacion: 'Sucursal Arequipa',
-                fecha: '2025-06-28',
-                imagen: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-                articulos: [
-                    { nombre: 'Smartwatch Deportivo', imagen: 'https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=80&q=80' }
-                ]
-            },
-            'LMN456': {
-                estado: 'En oficina de destino',
-                ubicacion: 'Sucursal Cusco',
-                fecha: '2025-07-02',
-                imagen: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-                articulos: [
-                    { nombre: 'Parlante Portatil', imagen: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=80&q=80' },
-                    { nombre: 'Cargador USB', imagen: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=80&q=80' }
-                ]
+                destino: 'PIURA PRINCIPAL',
+                detalles: 'El paquete está en ruta hacia su destino.'
             }
         };
-        function buscarPaquete(event) {
+        function buscarEnvio(event) {
             event.preventDefault();
-            const codigo = document.getElementById('codigoPaquete').value.trim().toUpperCase();
-            const resultado = document.getElementById('resultadoPaquete');
-            if (paquetesFalsos[codigo]) {
-                const p = paquetesFalsos[codigo];
-                let html = `<img src="${p.imagen}" alt="Paquete" style="display:block;margin-bottom:1rem;max-width:200px;">`;
-                html += `<strong>Estado:</strong> ${p.estado}<br><strong>Ubicación:</strong> ${p.ubicacion}<br><strong>Última actualización:</strong> ${p.fecha}`;
-                html += `<h4 style='margin-top:1rem;'>Artículos en el paquete:</h4><div style='display:flex;gap:1rem;'>`;
-                p.articulos.forEach(a => {
-                    html += `<div style='text-align:center;'><img src='${a.imagen}' alt='${a.nombre}' style='width:80px;height:80px;border-radius:8px;'><br>${a.nombre}</div>`;
-                });
-                html += `</div>`;
-                resultado.innerHTML = html;
+            const orden = document.getElementById('ordenInput').value.trim();
+            const codigo = document.getElementById('codigoInput').value.trim().toUpperCase();
+            const key = `${orden}-${codigo}`;
+            const resultado = document.getElementById('resultadoEnvio');
+            if (enviosFalsos[key]) {
+                const e = enviosFalsos[key];
+                resultado.innerHTML = `<div style='background:#fff;border-radius:8px;padding:1rem 1.5rem;box-shadow:0 1px 4px rgba(0,0,0,0.07);max-width:400px;margin:0 auto;'>`+
+                    `<strong>Estado:</strong> ${e.estado}<br>`+
+                    `<strong>Ubicación:</strong> ${e.ubicacion}<br>`+
+                    `<strong>Destino:</strong> ${e.destino}<br>`+
+                    `<strong>Última actualización:</strong> ${e.fecha}<br>`+
+                    `<strong>Detalles:</strong> ${e.detalles}`+
+                `</div>`;
             } else {
-                resultado.innerHTML = '<span style="color:#b80000;">No se encontró ningún paquete con ese código.</span>';
+                resultado.innerHTML = `<div style='color:#d90429;font-weight:bold;'>No se encontró ningún envío con esos datos.</div>`;
             }
         }
     </script>
